@@ -2,14 +2,13 @@ FROM node:12-alpine
 
 WORKDIR /app
 
-ENV PORT 8000
-
-EXPOSE 8000
-
 COPY package*.json ./
-COPY . /app
 
 RUN npm i
+
+COPY . /app
+
+RUN npm run lint
 
 RUN npm run build
 

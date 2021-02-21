@@ -1,7 +1,7 @@
 version: '3'
 
 services:
-  kweli-api:
+  kweli-os:
     build:
       context: .
       dockerfile: Dockerfile
@@ -11,3 +11,5 @@ services:
         target: /app/
     ports:
       - 8000:8000
+    environment: 
+      PORT: 8000
