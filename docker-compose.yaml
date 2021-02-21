@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  kweli-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:   # Binds volume to enable working through docker locally
+      - type: bind
+        source: .
+        target: /app/
+    ports:
+      - 8000:8000
