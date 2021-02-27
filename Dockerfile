@@ -8,7 +8,7 @@ ENV PATH /app/node_modules/.bin:$PATH
 # install and cache app dependencies
 COPY package*.json ./
 
-RUN npm i --only=production
+RUN npm i
 
 COPY . /app
 
