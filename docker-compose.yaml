@@ -5,7 +5,7 @@ services:
     container_name: kweli
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: docker/Dockerfile
     volumes:   # Binds volume to enable working through docker locally
       - type: bind
         source: ./src/
@@ -17,6 +17,6 @@ services:
         source: ./tsconfig.json
         target: /app/tsconfig.json
     ports:
-      - 8080:8080
+      - 3000:3000
     environment: 
-      PORT: 8080
+      PORT: 3000
