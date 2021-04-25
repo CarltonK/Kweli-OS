@@ -10,7 +10,7 @@ services:
       - 3306:3306
     environment:
       MYSQL_ROOT_PASSWORD: "root"
-      MYSQL_DATABASE: "kweli_database"
+      MYSQL_DATABASE: "kweli"
       MYSQL_USER: "kwelismart"
       MYSQL_PASSWORD: "kwelismart"
 
