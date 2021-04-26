@@ -1,18 +1,16 @@
 version: '3.6'
 
 services:
-  mysql:
-    image: mysql:5.7.21
+  postgres:
+    image: postgres:10.3
     restart: always
-    volumes:
-      - kwelismart:/var/lib/mysql
-    ports:
-      - 3306:3306
     environment:
-      MYSQL_ROOT_PASSWORD: "root"
-      MYSQL_DATABASE: "kweli"
-      MYSQL_USER: "kwelismart"
-      MYSQL_PASSWORD: "kwelismart"
+      - POSTGRES_USER=kwelismart
+      - POSTGRES_PASSWORD=kwelismart
+    volumes:
+      - postgres:/var/lib/postgresql/data
+    ports:
+      - '5432:5432'
 
   kweli:
     container_name: kweli
@@ -30,11 +28,11 @@ services:
         source: ./tsconfig.json
         target: /app/tsconfig.json
     depends_on:
-      - mysql
+      - postgres
     ports:
       - 3000:3000
     environment: 
       PORT: 3000
   
 volumes:
-  kwelismart:
+  postgres:
