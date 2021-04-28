@@ -1,0 +1,1 @@
+# MySQL AppArmour Fix - https://askubuntu.com/questions/1242026/cannot-connect-mysql-workbench-to-mysql-server
