@@ -1,8 +1,6 @@
 version: '3.6'
-
 services:
-
-  mysql:
+  kwelidb:
     image: mysql:5.7.21
     restart: always
     volumes:
@@ -14,8 +12,8 @@ services:
       MYSQL_DATABASE: "kweli"
       MYSQL_USER: "kwelismart"
       MYSQL_PASSWORD: "kwelismart"
-  kweli:
-    container_name: kweli
+  kwelios:
+    container_name: kwelios
     build:
       context: .
       dockerfile: docker/Dockerfile
@@ -30,11 +28,10 @@ services:
         source: ./tsconfig.json
         target: /app/tsconfig.json
     depends_on:
-      - mysql
+      - kwelidb
     ports:
       - 3000:3000
     environment: 
       PORT: 3000
-  
 volumes:
   kwelismart:
