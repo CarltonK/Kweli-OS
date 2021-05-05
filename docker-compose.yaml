@@ -12,6 +12,7 @@ services:
       MYSQL_DATABASE: "kweli"
       MYSQL_USER: "kwelismart"
       MYSQL_PASSWORD: "kwelismart"
+      MYSQL_HOST: "localhost"
   kwelios:
     container_name: kwelios
     build:
@@ -33,5 +34,13 @@ services:
       - 3000:3000
     environment: 
       PORT: 3000
+      NODE_ENV: "local"
+      MYSQL_ROOT_PASSWORD: "root"
+      MYSQL_DATABASE: "kweli"
+      MYSQL_USER: "kwelismart"
+      MYSQL_PASSWORD: "kwelismart"
+      MYSQL_HOST: "localhost"
+      MYSQL_PORT: 3306
+    network_mode: "host"
 volumes:
   kwelismart:
